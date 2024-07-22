@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>qun</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="mobileoptimized" content="240" />
+	
+	<!-- <script src="src/index.js" type="module"></script> -->
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		img{ float: none;}
+	</style>
+</head>
+
+<body>
+	<input type="text" id="inb" placeholder="请输入">
+	<ul class="list">
+		<li>1</li>
+	</ul>
+	<script>
+
+// 防抖
+var timer= null;
+function debouce(data){
+	timer = setTimeout(function(){
+		getdata(data)
+	},500)
+}
+// 定义缓存对象
+
+var cacheobj={};
+
+		$('#inb').on('keyup',function(){
+			clearTimeout(timer);
+			var val = $(this).val().trim();
+			if(val.length<=0){
+				$('.list').html('');
+				return
+			}
+			
+if(cacheobj[val]){
+	console.log(0)
+	// return getdata(val);
+}
+console.log(11)
+
+debouce(val);
+		
+
+		})
+
+
+		function getdata(kw){
+			$.ajax({
+				url:'https://suggest.taobao.com/sug?q='+kw,
+				dataType:'jsonp',
+				success:function(data){
+					// console.log(data)
+					rendlist (data.result);
+				}
+			})
+		}
+
+
+		//渲染
+		function rendlist (res){
+			if(res.length<=0){
+				return $('.list').html('');
+			}
+			var ht='';
+			for(var i= 0;i<res.length;i++){
+				ht +=`<li>${res[i][0]}</li>`;
+			}
+			$('.list').html(ht);
+
+			var k = $('#inb').val().trim();
+			cacheobj[k]=res;
+
+			
+		}
+</script>
+	
+</body>
+
+</html>

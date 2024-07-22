@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>qun</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="mobileoptimized" content="240" />
+	
+	<!-- <script src="src/index.js" type="module"></script> -->
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		/* body{ position: relative;} */
+		img{ float: none;}
+		*{padding: 0; margin: 0;}
+		#aa{ position: absolute; width:20px;height:20px; background: #ddd; left:0;}
+	</style>
+</head>
+
+<body>
+	<!-- 请求行包含：   请求方式  请求url  协议版本号 -->
+	<input type="button" value="get请求" id="getbtn">
+	<input type="button" value="post请求" id="postbtn">
+	<script>
+		$('#getbtn').click(function(){
+			$.ajax({
+				url:'js/getdata.js',
+				method:"GET",
+				data:{
+					name:'zs',
+					age:55
+				},
+				success:function(data){
+					console.log(data)
+				}
+			})
+		})
+
+
+		$('#postbtn').click(function(){
+			$.ajax({
+				method:"POST",
+				url:'',
+				success:function(data){
+console.log(data)
+				}
+			})
+		})
+	
+		
+
+
+</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>qun</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="mobileoptimized" content="240" />
+	
+	<!-- <script src="src/index.js" type="module"></script> -->
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		/* body{ position: relative;} */
+		img{ float: none;}
+		*{padding: 0; margin: 0;}
+		#aa{ position: absolute; width:20px;height:20px; background: #ddd; left:0;}
+	</style>
+</head>
+
+<body>
+	<p id="aa" ></p>
+	<!-- <img src="js/1.jpg" alt="" srcset="" id="aa" class="image_XY"> -->
+	<script>
+	
+		var oa = $('#oa');
+		// oa.css('left',pageX+'px');
+		
+		$(document).mousemove(function(e){
+			$('#aa').css('left',e.pageX+'px').css('top',e.pageY+'px');
+			// $(".image_XY").css({ "width": "100px", "height": "100px", "position": "absolute", "left": e.pageX, "top": e.pageY });
+
+		})
+
+
+
+</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>qun</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="mobileoptimized" content="240" />
+	
+	<!-- <script src="src/index.js" type="module"></script> -->
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		img{ float: none;}
+	</style>
+</head>
+
+<body>
+	
+	<script>
+function abc(data){
+    console.log('解析成功了 内容是：')
+    console.log(data)
+}
+
+// success({name:'zs',age:'55'})
+
+		$.ajax({
+            url:'http://127.0.0.1:5500/js/getdata.js?name=li&age=9999',
+            dataType:'jsonp',
+            success:function(data){
+                console.log(data)
+            }
+        })
+		
+
+	</script>
+    <script src=""></script>
+    <!-- <script src="http://ajax.frontend.itheima.net:3006/api/jsonp&callback=abc&name=lj&age=5555"></script> -->
+	
+</body>
+
+</html>
